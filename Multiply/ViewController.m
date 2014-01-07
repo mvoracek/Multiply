@@ -13,6 +13,9 @@
     
     __weak IBOutlet UITextField *myNumber;
     __weak IBOutlet UILabel *myMultiplier;
+    __weak IBOutlet UILabel *myAnswer;
+    __weak IBOutlet UIButton *calculateButton;
+    
 }
 @end
 
@@ -29,5 +32,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)onCalculateButtonPressed:(id)sender
+{
+    NSString *a = [myNumber text];
+    int b = [a intValue];
+    NSString *c = [myMultiplier text];
+    int d = [c intValue];
+    int answer = b * d;
+    [myAnswer setText:[NSString stringWithFormat:@"%i",answer]];
+}
+    
+
+
+
 
 @end
