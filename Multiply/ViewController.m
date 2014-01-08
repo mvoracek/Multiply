@@ -15,6 +15,7 @@
     __weak IBOutlet UILabel *myMultiplier;
     __weak IBOutlet UILabel *myAnswer;
     __weak IBOutlet UIButton *calculateButton;
+    __weak IBOutlet UISlider *mySlider;
     
 }
 @end
@@ -34,14 +35,16 @@
 }
 - (IBAction)onCalculateButtonPressed:(id)sender
 {
-    NSString *a = [myNumber text];
-    int b = [a intValue];
-    NSString *c = [myMultiplier text];
-    int d = [c intValue];
-    int answer = b * d;
+    int answer = myNumber.text.intValue * myMultiplier.text.intValue;
     [myAnswer setText:[NSString stringWithFormat:@"%i",answer]];
+    
 }
     
+- (IBAction)changeMultiplier:(id)sender
+{
+    int sliderMultiplier = mySlider.value;
+    [myMultiplier setText:[NSString stringWithFormat:@"%i", sliderMultiplier]];
+}
 
 
 
